@@ -18,7 +18,7 @@ def augment(url, parameters):
     return oauth_request.to_url()
 
 
-def test_me(name):
+def collect_friends(name):
     # print('* Calling Twitter...')
     url = augment('https://api.twitter.com/1.1/friends/list.json',
                   {'screen_name': name, 'count': '100'})
@@ -31,7 +31,7 @@ def test_me(name):
 
 
 def get_location(name):
-    dict1 = test_me(name)
+    dict1 = collect_friends(name)
     return_list = []
     users_info = dict1['users']
     for i in range(len(users_info)):
